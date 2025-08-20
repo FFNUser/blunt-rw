@@ -1,4 +1,4 @@
-# pyzule-rw / cyan
+# pyzule-rw / cyan-x
 
 a rewrite of [pyzule](https://github.com/asdfzxcvbn/pyzule) that doesn't (completely) suck !!
 
@@ -37,23 +37,11 @@ the `zip` and `unzip` commands are *optional* dependencies, they may [fix issues
 <br/>
 <ol>
   <li>install <a href="https://github.com/pypa/pipx?tab=readme-ov-file#install-pipx">pipx</a></li>
-  <li>install OR update cyan: <code>pipx install --force https://github.com/b1atant/blunt-rw/archive/main.zip</code></li>
+  <li>install OR update cyan: <code>pipx install --force https://github.com/ffnuser/blunt-rw/archive/main.zip</code></li>
   <li><b>if you want to inject dylibs ON AARCH64 LINUX</b>: <code>pipx inject cyan lief</code></li>
   <li><b>if you want to change app icons (iOS NOT supported)</b>: <code>pipx inject cyan Pillow</code></li>
 </ol>
 </details>
-
-<details>
-<summary><b>jailbroken iOS instructions / automated environment (github workflow, etc)</b></summary>
-<br/>
-<ol>
-  <li>install OR update cyan: <code>pip install --force-reinstall https://github.com/b1atant/blunt-rw/archive/main.zip</code></li>
-</ol>
-</details>
-
-## making cyan files
-
-cyan comes bundled with the `cgen` command, which lets you generate `.cyan` files to pass to `-z`/`--cyan` !
 
 ## acknowledgements
 
