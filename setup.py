@@ -3,19 +3,18 @@
 from setuptools import setup
 
 setup(
-  name="cyan",
+  name="cyan-x",
   version="1.4.5",
-  description="finally, pyzule doesn't suck",
+  description="(blunt-rw) finally, pyzule doesn't suck",
   author="zx",
   author_email="z@zxcvbn.fyi",
   maintainer="b1atant",
-  packages=["cyan", "cyan.tbhtypes", "cgen"],
+  packages=["cyan", "cyan.tbhtypes"],
   python_requires=">=3.9",
   include_package_data=True,
   entry_points={
     "console_scripts": [
-      "cyan=cyan.__main__:main",
-      "cgen=cgen.__main__:main"
+      "cyan-x=cyan.__main__:main",
     ],
   }
 )
