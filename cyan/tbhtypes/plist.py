@@ -1,7 +1,13 @@
+import re
 import sys
 import plistlib
 from glob import glob
 from typing import Optional, Any
+
+# some third-party framework plists have a malformed DOCTYPE (e.g. `\>` instead
+# of `>`) that expat rejects under UTF-8 locales but silently accepts under POSIX.
+# plistlib never uses the DOCTYPE anyway, so strip it and retry on parse failure.
+_DOCTYPE = re.compile(rb"<!DOCTYPE[^>]*>")
 
 class Plist:
   def __init__(
@@ -9,7 +15,12 @@ class Plist:
   ):
     try:
       with open(path, "rb") as f:
-        self.data: dict[str, Any] = plistlib.load(f)
+        data = f.read()
+
+      try:
+        self.data: dict[str, Any] = plistlib.loads(data)
+      except Exception:
+        self.data = plistlib.loads(_DOCTYPE.sub(b"", data))
 
       self.success = True
     except Exception as e:
